@@ -1,0 +1,11 @@
+<div id= "show">
+    <div id= "show_body">
+        <p class="show_details">
+            <b>Title:</b>
+            <%= @project.name %>
+        </p>
+    </div>
+
+    <%= link_to 'Edit', edit_project_path(@project) %> |
+    <%= link_to 'Back', projects_path %>
+</div>
