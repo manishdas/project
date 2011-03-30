@@ -1,12 +1,12 @@
-<%= form_for([@post,@post.comments.build]) do |form| %>
-<% if @project.errors.any? %>
+<%= form_for([@project,@project.team_members.build]) do |form| %>
+<% if @team_member.errors.any? %>
 <div id="error_explanation">
   <h2>
-    <%= pluralize(@project.errors.count, "error") %> Listed Below:
+    <%= pluralize(@team_member.errors.count, "error") %> Listed Below:
   </h2>
 
   <ul>
-    <% @project.errors.full_messages.each do |err_msg| %>
+    <% @team_member.errors.full_messages.each do |err_msg| %>
     <li>
       <%= err_msg %>
     </li>

@@ -5,7 +5,8 @@
             <%= @project.name %>
         </p>
     </div>
-
+    <%= link_to 'Add Task', edit_project_path(@project) %> |
+    <%= link_to 'Add Team member', new_project_team_members(@project) %> |
     <%= link_to 'Edit', edit_project_path(@project) %> |
     <%= link_to 'Back', projects_path %>
 </div>

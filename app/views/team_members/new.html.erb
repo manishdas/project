@@ -1,2 +1,7 @@
-<h1>TeamMembers#new</h1>
-<p>Find me in app/views/team_members/new.html.erb</p>
+<div id="new_container">
+  <header>Add team Member</header>
+  <div id="team_member_form">
+    <%= render "form" %>
+  </div>
+  <%= link_to "Back", projects_path %>
+</div>
