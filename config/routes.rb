@@ -1,20 +1,6 @@
 PMS::Application.routes.draw do
 
 
-  get "team_members/index"
-
-  get "team_members/new"
-
-  get "team_members/edit"
-
-  get "team_members/create"
-
-  get "team_members/delete"
-
-  get "team_members/update"
-
-  get "team_members/show"
-
   devise_for :people
 
   # The priority is based upon order of creation:

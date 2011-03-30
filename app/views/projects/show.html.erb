@@ -4,9 +4,15 @@
             <b>Title:</b>
             <%= @project.name %>
         </p>
+        <p class="show_details">
+            <b>Team Members:</b>
+            <% @project.team_members.each do |m|%>
+            <%= m.name %><br />
+            <% end %>
+        </p>
     </div>
     <%= link_to 'Add Task', edit_project_path(@project) %> |
-    <%= link_to 'Add Team member', new_project_team_members(@project) %> |
+    <%= link_to 'Add Team member', new_project_team_members_path(@project) %> |
     <%= link_to 'Edit', edit_project_path(@project) %> |
     <%= link_to 'Back', projects_path %>
 </div>
