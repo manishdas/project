@@ -34,6 +34,8 @@ end
 group :test do
     gem 'rspec-rails'
     gem 'shoulda-matchers'
-    gem 'cucumber'
+    gem 'cucumber-rails'
+    gem 'machinist', '>=2.0.0.beta'
+    gem 'ffaker'
 end
 

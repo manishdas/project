@@ -37,6 +37,10 @@ GEM
       gherkin (>= 2.3.5)
       json (>= 1.4.6)
       term-ansicolor (>= 1.0.5)
+    cucumber-rails (0.4.0)
+      cucumber (>= 0.10.1)
+      nokogiri (>= 1.4.4)
+      rack-test (>= 0.5.7)
     devise (1.2.1)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.3)
@@ -44,6 +48,7 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    ffaker (1.4.0)
     formtastic (1.2.3)
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
@@ -52,12 +57,14 @@ GEM
       json (>= 1.4.6)
     i18n (0.5.0)
     json (1.5.1)
+    machinist (2.0.0.beta2)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    nokogiri (1.4.4)
     orm_adapter (0.0.4)
     polyglot (0.3.1)
     rack (1.2.2)
@@ -106,9 +113,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cucumber
+  cucumber-rails
   devise
+  ffaker
   formtastic
+  machinist (>= 2.0.0.beta)
   rails (= 3.0.5)
   rspec-rails
   shoulda-matchers
