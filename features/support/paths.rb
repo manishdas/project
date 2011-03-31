@@ -10,9 +10,14 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the new create_task_group page/
+      new_create_task_group_path
+
     when /the new signing_up page/
       new_signing_up_path
 
+    when /the login page/
+        new_person_session_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

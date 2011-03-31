@@ -32,10 +32,12 @@ group :development do
     gem 'rspec-rails'
 end
 group :test do
-    gem 'rspec-rails'
-    gem 'shoulda-matchers'
-    gem 'cucumber-rails'
-    gem 'machinist', '>=2.0.0.beta'
-    gem 'ffaker'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'capybara', :git => 'https://github.com/jnicklas/capybara.git'
+  gem 'machinist', '>= 2.0.0.beta1'
+  gem 'ffaker'
+  gem 'cucumber-rails'
 end
 

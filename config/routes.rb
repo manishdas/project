@@ -1,13 +1,14 @@
 PMS::Application.routes.draw do
 
-
   devise_for :people
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
   root :to => "projects#index"
   resources :projects do
-    resource :team_members
+    resources :team_members
+    resources :task_groups
+    resources :tasks
   end
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

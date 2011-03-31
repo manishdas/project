@@ -1,23 +1,25 @@
-class TeamMembersController < ApplicationController
+class TaskGroupsController < ApplicationController
 
   before_filter :authenticate_person!
 
   def index
-    @team_members = TeamMember.all
+    @task_groups = TaskGroup.all
   end
 
   def new
     @project = Project.find(params[:project_id])
-    @team_member = @project.team_members.new
+    @task_group = @project.task_groups.new
   end
 
-  def edit
+  def show
+    @project = Project.find(params[:project_id])
+    @task_group = @project.task_groups.find(params[:id])
   end
 
   def create
     @project = Project.find(params[:project_id])
-    @team_member = @project.team_members.create(params[:team_member])
-    if @team_member.save
+    @task_group = @project.task_groups.create(params[:task_group])
+    if @task_group.save
       flash[:notice] = "New Team member added Successfully!"
       redirect_to project_path(@project)
     else
@@ -26,13 +28,13 @@ class TeamMembersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def delete
   end
 
   def update
-  end
-  def show
-   #ß @project = Project.find(params[:])
   end
 
 end

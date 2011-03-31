@@ -5,14 +5,30 @@
             <%= @project.name %>
         </p>
         <p class="show_details">
-            <b>Team Members:</b>
-            <% @project.team_members.each do |m|%>
-            <%= m.name %><br />
-            <% end %>
+            <b>Team Members</b><br/>
+            <ul>
+                <% @project.team_members.each do |m|%>
+                <li>
+                    <%= link_to m.name,project_team_members_path(@project) %>
+                    <br />
+                </li>
+                <% end %>
+            </ul>
+        </p>
+        <p class="show_details">
+            <b>Task Groups</b><br/>
+            <ul>
+                <% @project.task_groups.each do |t|%>
+                <li>
+                    <%= link_to t.task_name,project_task_groups_path(@project) %>
+                    <br />
+                </li>
+                <% end %>
+            </ul>
         </p>
     </div>
-    <%= link_to 'Add Task', edit_project_path(@project) %> |
-    <%= link_to 'Add Team member', new_project_team_members_path(@project) %> |
+    <%= link_to 'Create Task Group', new_project_task_group_path(@project) %> |
+    <%= link_to 'Add Team member', new_project_team_member_path(@project) %> |
     <%= link_to 'Edit', edit_project_path(@project) %> |
     <%= link_to 'Back', projects_path %>
 </div>
