@@ -13,11 +13,12 @@ Scenario: Register new signing_up
 
 @javascript
 Scenario: Person logs in
-  Given I am on the new_person_session page
-  When I fill in "Email" with "bb4@sprout-technology.com"
+  Given a person exists with "x@y.com" and password "manish"
+
+  Given I am on the login page
+  And I fill in "Email" with "x@y.com"
   And I fill in "Password" with "manish"
   And I press "Sign in"
-  And I should be on the root page
 
   #testing of creating new project
   And I follow "Create Project"
@@ -26,21 +27,6 @@ Scenario: Person logs in
   And I press "Create Project"
   Then a Project should exist with name: "Tested Project"
 
-  #testing of deleting project
-  And I follow image link "Destroy"
-  And I press "OK"
-  Then I should be on the root page
-
   #testing of signout
   And I follow "Sign Out"
   Then I should be on the new_person_session page
-
-
-  #testing of show project
-  And I follow image link "Show"
-
-  #testing of creating new task group
-
-  And I follow "Create Task Group"
-  Then I should see
-  Then sleep for 5 seconds
