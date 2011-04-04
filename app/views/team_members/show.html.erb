@@ -12,6 +12,8 @@
                 <% end %>
             </ul>
         </p>
+        <hr />
+        <p>Add Task To <%= @team_member.name%></p>
         <%= render "task_form" %>
     </div>
     <%= link_to 'Edit', edit_project_team_member_path(@project,@team_member) %> |

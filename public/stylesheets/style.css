@@ -1,8 +1,18 @@
 #show{
   background:#A8AFBF;
-  height:350px;
-  width:350px;
-  margin:50px 50px 50px 300px;
+  border-radius: 40px;
+  box-shadow: 10px 20px 10px rgba(0,0,0,.4);
+  height:550px;
+  width:550px;
+  margin:50px 50px 50px 500px;
   padding:15px 15px 15px 15px;
+}
 
+#welcome{
+  text-align:center;
+}
+
+header{
+  text-align:center;
+  font-size:30px;
 }
