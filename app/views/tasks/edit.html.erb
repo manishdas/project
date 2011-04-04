@@ -1,2 +1,9 @@
-<h1>Tasks#edit</h1>
-<p>Find me in app/views/tasks/edit.html.erb</p>
+<div id="edit">
+  <header>Edit Task</header>
+  <div id="edit_form">
+    <%= render 'form' %>
+
+    <%= link_to 'Show', @project %> |
+    <%= link_to 'Back', projects_path %>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<%= form_for([@project,@project.team_members.build]) do |form| %>
+<%= form_for([@project,@team_member]) do |form| %>
 <% if @team_member.errors.any? %>
 <div id="error_explanation">
   <h2>

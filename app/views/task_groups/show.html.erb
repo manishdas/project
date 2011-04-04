@@ -1,2 +1,11 @@
-<h1>TaskGroups#show</h1>
-<p>Find me in app/views/task_groups/show.html.erb</p>
+<div id= "show">
+    <div id= "show_body">
+        <p class="show_details">
+            <% @project = Project.find(params[:project_id]) %>
+            <% @task_group = @project.task_groups.find(params[:id]) %>
+            <b>Tasks of <%= @task_group.task_name %> group are</b>
+        </p>
+    </div>
+    <%= link_to 'Edit', edit_project_task_group_path(@project,@task_group) %> |
+    <%= link_to 'Back', project_path(@project) %>
+</div>

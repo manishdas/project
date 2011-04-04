@@ -1,2 +1,7 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<div id="new_container">
+  <header>Add Task</header>
+  <div id="project_form">
+    <%= render "form" %>
+  </div>
+  <%= link_to "Back", projects_path %>
+</div>

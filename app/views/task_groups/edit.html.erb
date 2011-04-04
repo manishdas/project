@@ -1,2 +1,7 @@
-<h1>TaskGroups#edit</h1>
-<p>Find me in app/views/task_groups/edit.html.erb</p>
+<div id="edit">
+  <header>Edit Task group</header>
+  <div id="edit_form">
+    <%= render 'form' %>
+    <%= link_to 'Back', project_task_group_path(@project,@task_group) %>
+  </div>
+</div>

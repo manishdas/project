@@ -1,0 +1,28 @@
+<%= form_for([@project,@team_member,@task]) do |form| %>
+<% if @task.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@task.errors.count, "error") %> Listed Below:
+  </h2>
+
+  <ul>
+    <% @task.errors.full_messages.each do |err_msg| %>
+    <li>
+      <%= err_msg %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<p class="show_details">
+  <%= form.label :task_title %><br />
+  <%= form.text_field :task_title %>
+</p>
+<p class="show_details">
+  <%= form.label :description %><br />
+  <%= form.text_area :desciption %>
+</p>
+<p class="show_details">
+  <%= form.submit%>
+</p>
+<% end%>

@@ -29,12 +29,21 @@ class TaskGroupsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:project_id])
+    @task_group = @project.task_groups.find(params[:id])
   end
 
   def delete
   end
 
   def update
+    @project = Project.find(params[:project_id])
+    @task_group = @project.task_groups.find(params[:id])
+     if @task_group.update_attributes(params[:task_group])
+         redirect_to(project_task_group_path, :notice => 'Team member was edited successfully.')
+     else
+       render :action => "edit"
+     end
   end
 
 end

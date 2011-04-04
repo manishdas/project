@@ -1,2 +1,13 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<div id= "show">
+    <div id= "show_body">
+        <p class="show_details">
+            <% @project = Project.find(params[:project_id]) %>
+            <% @team_member = @project.team_members.find(params[:team_member_id]) %>
+            <% @task = @team_member.tasks.find(params[:id])%>
+            <b><%= @task.task_title %> Description</b>
+            <p><%= @task.desciption %></p>
+        </p>
+    </div>
+    <%= link_to 'Edit', edit_project_team_member_task_path(@project,@team_member,@task) %> |
+    <%= link_to 'Back', project_team_member_path(@project, @team_member) %>
+</div>

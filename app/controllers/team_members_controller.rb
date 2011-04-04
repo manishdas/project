@@ -12,6 +12,8 @@ class TeamMembersController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:project_id])
+    @team_member = @project.team_members.find(params[:id])
   end
 
   def create
@@ -22,7 +24,7 @@ class TeamMembersController < ApplicationController
       redirect_to project_path(@project)
     else
       flash[:notice] = "Team member was not added!"
-      render "comment"
+      render "new"
     end
   end
 
@@ -30,9 +32,16 @@ class TeamMembersController < ApplicationController
   end
 
   def update
+    @project = Project.find(params[:project_id])
+    @team_member = @project.team_members.find(params[:id])
+     if @team_member.update_attributes(params[:team_member])
+         redirect_to(project_team_member_path, :notice => 'Team member was edited successfully.')
+     else
+       render :action => "edit"
+     end
   end
+
   def show
-   #ß @project = Project.find(params[:])
   end
 
 end

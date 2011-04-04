@@ -1,2 +1,9 @@
-<h1>TeamMembers#edit</h1>
-<p>Find me in app/views/team_members/edit.html.erb</p>
+<div id="edit">
+  <header>Edit Team Member</header>
+  <div id="edit_form">
+    <%= render 'form' %>
+
+    <%= link_to 'Show', @project %> |
+    <%= link_to 'Back', project_team_member_path(@project,@team_member) %>
+  </div>
+</div>

@@ -1,2 +1,4 @@
-<h1>TeamMembers#index</h1>
-<p>Find me in app/views/team_members/index.html.erb</p>
+<% @project = Project.find(params[:project_id]) %>
+<% @team_member = @project.team_members %>
+<h1><%= @team_member.name %></h1>
+

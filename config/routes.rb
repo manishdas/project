@@ -6,9 +6,10 @@ PMS::Application.routes.draw do
   # first created -> highest priority.
   root :to => "projects#index"
   resources :projects do
-    resources :team_members
+    resources :team_members do
+      resources :tasks
+    end
     resources :task_groups
-    resources :tasks
   end
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

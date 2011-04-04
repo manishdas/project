@@ -1,11 +1,19 @@
 <div id= "show">
     <div id= "show_body">
         <p class="show_details">
-            <b>Title:</b>
-            <%= @project.team_members.member_name %>
+            <% @project = Project.find(params[:project_id]) %>
+            <% @team_member = @project.team_members.find(params[:id]) %>
+            <b>Tasks assigned to <%= @team_member.name %> are</b>
+            <ul>
+                <% @team_member.tasks.each do |task| %>
+                <li>
+                    <%= link_to task.task_title, project_team_member_task_path(@project,@team_member,task) %>
+                </li>
+                <% end %>
+            </ul>
         </p>
     </div>
-
-    <%= link_to 'Edit', edit_project_path(@project) %> |
-    <%= link_to 'Back', projects_path %>
+    <%= link_to 'Add Task', new_project_team_member_task_path(@project,@team_member) %> |
+    <%= link_to 'Edit', edit_project_team_member_path(@project,@team_member) %> |
+    <%= link_to 'Back', project_path(@project) %>
 </div>
