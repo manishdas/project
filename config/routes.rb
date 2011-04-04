@@ -2,6 +2,7 @@ PMS::Application.routes.draw do
 
   devise_for :people
 
+  match 'task_member_update' => 'tasks#member_update'
   # The priority is based upon order of creation:
   # first created -> highest priority.
   root :to => "projects#index"

@@ -1,0 +1,11 @@
+<%= form_tag( task_member_update_path, :method => :get ) do %>
+<p class="show_details">
+    <%= label_tag :task_title %><br />
+    <%= select_tag :task_title, options_for_select( Task.all.map { |t| [t.task_title,t.id] }) %>
+    <%= select_tag :team_member_id, options_for_select([@team_member.id]), :hidden => true %>
+    <%= select_tag :project, options_for_select([@project]), :hidden => true %>
+    </p>
+<p class="show_details">
+    <%= submit_tag "Add Task"%>
+</p>
+<% end%>

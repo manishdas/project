@@ -1,5 +1,7 @@
+<div id ="welcome">
 <% if person_signed_in? %>
 <p>welcome <%= current_person.email%> | <%= link_to "Sign Out", destroy_person_session_path%></p>
 <% else%>
 <p><%= link_to "Sign In", new_person_session_path%></p>
 <% end%>
+</div>

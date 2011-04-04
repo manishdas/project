@@ -7,13 +7,13 @@
             <ul>
                 <% @team_member.tasks.each do |task| %>
                 <li>
-                    <%= link_to task.task_title, project_team_member_task_path(@project,@team_member,task) %>
+                    <%= task.task_title %>
                 </li>
                 <% end %>
             </ul>
         </p>
+        <%= render "task_form" %>
     </div>
-    <%= link_to 'Add Task', new_project_team_member_task_path(@project,@team_member) %> |
     <%= link_to 'Edit', edit_project_team_member_path(@project,@team_member) %> |
     <%= link_to 'Back', project_path(@project) %>
 </div>

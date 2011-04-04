@@ -41,10 +41,20 @@ class TasksController < ApplicationController
     @task_group = @project.task_groups.find(params[:task_group_id])
     @task = @task_group.tasks.find(params[:id])
      if @task.update_attributes(params[:task])
-         redirect_to(project_team_member_task_path, :notice => 'Team member was edited successfully.')
+         redirect_to(project_task_group_task_path, :notice => 'Team member was edited successfully.')
      else
        render :action => "edit"
      end
+  end
+
+  def member_update
+    @project = params[:project]
+    @task_id = params[:task_title]
+    @member_id = params[:team_member_id]
+    @task = Task.where(:id => @task_id)
+    if @task.first.update_attributes(:team_member_id =>@member_id)
+      redirect_to(projects_path, :notice => 'Task added successfully')
+    end
   end
 
 end
