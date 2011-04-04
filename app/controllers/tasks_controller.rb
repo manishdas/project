@@ -4,20 +4,23 @@ class TasksController < ApplicationController
 
   def new
     @project = Project.find(params[:project_id])
-    @team_member = @project.team_members.find(params[:team_member_id])
-    @task = @team_member.tasks.new
+    @task_group = @project.task_groups.find(params[:task_group_id])
+    @task = @task_group.tasks.new
   end
 
   def show
+    @project = Project.find(params[:project_id])
+    @task_group = @project.task_groups.find(params[:task_group_id])
+    @task = @task_group.tasks.find(params[:id])
   end
 
   def create
     @project = Project.find(params[:project_id])
-    @team_member = @project.team_members.find(params[:team_member_id])
-    @task = @team_member.tasks.create(params[:task])
+    @task_group = @project.task_groups.find(params[:task_group_id])
+    @task = @task_group.tasks.create(params[:task])
     if @task.save
       flash[:notice] = "New Task added Successfully!"
-      redirect_to project_team_member_path(@project,@team_member)
+      redirect_to project_task_group_path(@project,@task_group)
     else
       flash[:notice] = "Task was not added!"
       render "new"
@@ -26,8 +29,8 @@ class TasksController < ApplicationController
 
   def edit
     @project = Project.find(params[:project_id])
-    @team_member = @project.team_members.find(params[:team_member_id])
-    @task = @team_member.tasks.find(params[:id])
+    @task_group = @project.task_groups.find(params[:task_group_id])
+    @task = @task_group.tasks.find(params[:id])
   end
 
   def delete
@@ -35,8 +38,8 @@ class TasksController < ApplicationController
 
   def update
     @project = Project.find(params[:project_id])
-    @team_member = @project.team_members.find(params[:team_member_id])
-    @task = @team_member.tasks.find(params[:id])
+    @task_group = @project.task_groups.find(params[:task_group_id])
+    @task = @task_group.tasks.find(params[:id])
      if @task.update_attributes(params[:task])
          redirect_to(project_team_member_task_path, :notice => 'Team member was edited successfully.')
      else

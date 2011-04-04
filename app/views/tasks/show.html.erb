@@ -2,8 +2,8 @@
     <div id= "show_body">
         <p class="show_details">
             <% @project = Project.find(params[:project_id]) %>
-            <% @team_member = @project.team_members.find(params[:team_member_id]) %>
-            <% @task = @team_member.tasks.find(params[:id])%>
+            <% @task_group = @project.task_groups.find(params[:task_group_id]) %>
+            <% @task = @task_group.tasks.find(params[:id])%>
             <b><%= @task.task_title %> Description</b>
             <p><%= @task.desciption %></p>
         </p>

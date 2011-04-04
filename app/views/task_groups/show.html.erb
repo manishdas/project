@@ -5,7 +5,15 @@
             <% @task_group = @project.task_groups.find(params[:id]) %>
             <b>Tasks of <%= @task_group.task_name %> group are</b>
         </p>
+        <ul>
+            <% @task_group.tasks.each do |task| %>
+            <li>
+                <%= link_to task.task_title, project_task_group_task_path(@project,@task_group,task) %>
+            </li>
+            <% end %>
+        </ul>
     </div>
+    <%= link_to 'Add Task', new_project_task_group_task_path(@project,@task_group) %> |
     <%= link_to 'Edit', edit_project_task_group_path(@project,@task_group) %> |
     <%= link_to 'Back', project_path(@project) %>
 </div>
